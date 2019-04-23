@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "install-terragrunt",
     "publisher": "BigAvocado",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "name": "Install Terragrunt",
     "description": "Installs terragrunt",
     "public": false,
@@ -34,6 +34,6 @@
         }
     ],
     "files": [
-        {"path": "terragrunt"}
+        {"path": "terragrunt", "packagePath": "terragrunt"}
     ]
 }
