@@ -1,33 +1,39 @@
 {
     "manifestVersion": 1,
     "id": "install-terragrunt",
-    "publisher": "Chris Sewell",
-    "version": "0.18.4",
+    "publisher": "BigAvocado",
+    "version": "0.0.1",
     "name": "Install Terragrunt",
-    "description": "This build step install the terragrunt tooling",
-    "public": true,
-    "categories": ["Infrastructure"],
+    "description": "This will install the terragrunt tooling",
+    "public": false,
+    "categories": ["Azure Pipelines"],
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
+    "content": {
+        "details": {
+            "path": "Overview.md"
+        }
+    },
+    "icons": {
+        "default": "images/gruntwork-logo.png"
+    },
     "contributions": [
         {
-            "id": "my-hub",
+            "id": "install-terragrunt",
             "type": "ms.vss-web.hub",
             "targets": [
                 "ms.vss-code-web.code-hub-group"
             ],
             "properties": {
-                "name": "My Hub",
-                "uri": "my-hub.html"
+                "name": "install-terragrunt",
+                "uri": "terragrunt"
             }
         }
     ],
     "files": [
-        {
-            "path": "buildAndReleaseTask"
-        }
+        {"path": "terragrunt"}
     ]
 }

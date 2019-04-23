@@ -1,0 +1,25 @@
+{
+    "id": "c67b072a-0853-4578-95c1-acbc26e8897a",
+    "name": "terraagrunt",
+    "friendlyName": "Install Terragrunt",
+    "description": "This build step will install the terragrunt tooling for winodws agents",
+    "helpMarkDown": "https://github.com/gruntwork-io/terragrunt",
+    "category": "Infrastructure",
+    "author": "Big Avocado",
+    "version": {
+        "Major": 0,
+        "Minor": 18,
+        "Patch": 4
+    },
+    "instanceNameFormat": "Install Terragrunt",
+    "inputs": [],
+    "execution": {
+        "Node": {
+            "target": "index.js"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/cdesewell/terragrunt-azure-dev-ops"
+    }
+}
