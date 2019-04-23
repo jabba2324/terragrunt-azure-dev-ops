@@ -2,9 +2,9 @@
     "manifestVersion": 1,
     "id": "install-terragrunt",
     "publisher": "BigAvocado",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "name": "Install Terragrunt",
-    "description": "This will install the terragrunt tooling",
+    "description": "Installs terragrunt",
     "public": false,
     "categories": ["Azure Pipelines"],
     "targets": [

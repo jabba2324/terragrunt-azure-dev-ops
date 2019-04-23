@@ -1,7 +1,7 @@
 {
   "name": "terragrunt",
   "version": "0.18.3",
-  "description": "Installs terragrunt on the build/release agent",
+  "description": "Installs terragrunt",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
