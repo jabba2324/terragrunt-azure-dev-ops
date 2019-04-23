@@ -7,14 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Coyote Software",
+  "author": "Big Avocado",
   "license": "ISC",
   "dependencies": {
-    "@types/request-promise-native": "^1.0.15",
     "azure-pipelines-task-lib": "^2.8.0",
     "azure-pipelines-tool-lib": "^0.12.0",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.7",
     "vss-web-extension-sdk": "^5.141.0"
   },
   "devDependencies": {
