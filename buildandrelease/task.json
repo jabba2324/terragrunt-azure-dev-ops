@@ -1,0 +1,21 @@
+{
+    "id": "c67b072a-0853-4578-95c1-acbc26e8897a",
+    "name": "terraagrunt",
+    "friendlyName": "Install Terragrunt 0.18.4",
+    "description": "This build step will install the terragrunt tooling for winodws agents",
+    "helpMarkDown": "https://github.com/gruntwork-io/terragrunt",
+    "category": "Infrastructure",
+    "author": "Chris Sewell",
+    "version": {
+        "Major": 0,
+        "Minor": 18,
+        "Patch": 4
+    },
+    "instanceNameFormat": "Install Terragrunt 0.18.4",
+    "inputs": [],
+    "execution": {
+        "Node": {
+            "target": "index.js"
+        }
+    }
+}

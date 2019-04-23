@@ -1,0 +1,25 @@
+{
+  "name": "terragrunt",
+  "version": "0.18.3",
+  "description": "Installs terragrunt on the build/release agent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Coyote Software",
+  "license": "ISC",
+  "dependencies": {
+    "@types/request-promise-native": "^1.0.15",
+    "azure-pipelines-task-lib": "^2.8.0",
+    "azure-pipelines-tool-lib": "^0.12.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "vss-web-extension-sdk": "^5.141.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.7",
+    "@types/q": "^1.5.2"
+  }
+}

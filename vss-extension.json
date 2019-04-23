@@ -1,0 +1,33 @@
+{
+    "manifestVersion": 1,
+    "id": "install-terragrunt",
+    "publisher": "Chris Sewell",
+    "version": "0.18.4",
+    "name": "Install Terragrunt",
+    "description": "This build step install the terragrunt tooling",
+    "public": true,
+    "categories": ["Infrastructure"],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "my-hub",
+            "type": "ms.vss-web.hub",
+            "targets": [
+                "ms.vss-code-web.code-hub-group"
+            ],
+            "properties": {
+                "name": "My Hub",
+                "uri": "my-hub.html"
+            }
+        }
+    ],
+    "files": [
+        {
+            "path": "buildAndReleaseTask"
+        }
+    ]
+}
