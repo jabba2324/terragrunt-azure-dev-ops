@@ -4,12 +4,12 @@
     "friendlyName": "Install Terragrunt",
     "description": "This build step will install the terragrunt tooling for winodws agents",
     "helpMarkDown": "https://github.com/gruntwork-io/terragrunt",
-    "category": "Infrastructure",
+    "category": "Azure Pipelines",
     "author": "Big Avocado",
     "version": {
         "Major": 0,
-        "Minor": 18,
-        "Patch": 4
+        "Minor": 0,
+        "Patch": 1
     },
     "instanceNameFormat": "Install Terragrunt",
     "inputs": [],

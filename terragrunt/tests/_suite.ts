@@ -8,7 +8,7 @@ describe('Sample task tests', function () {
 
     });
 
-    after(() => {
+    after(function() {
 
     });
 

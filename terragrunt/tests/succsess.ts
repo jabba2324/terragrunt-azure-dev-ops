@@ -5,8 +5,6 @@ import path = require('path');
 let taskPath = path.join(__dirname, '..', 'index.js');
 let tmr: tmrm.TaskMockRunner = new tmrm.TaskMockRunner(taskPath);
 
-process.env.INPUT_TERRAGRUNTVERSION = '';
-
-//tmr.setInput('terragruntversion', '');
+tmr.setInput('terragruntversion', '0.18.4');
 
 tmr.run();
