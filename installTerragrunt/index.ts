@@ -1,11 +1,11 @@
 import taskLib = require('azure-pipelines-task-lib/task');
 import toolLib = require('azure-pipelines-tool-lib/tool');
 import os = require('os');
-import { version } from 'react';
 
 async function run() {
     try {
         const versionNumber: string = taskLib.getInput('terragruntversion', true);
+
         if ((versionNumber == '') || (versionNumber == null)) {
             taskLib.setResult(taskLib.TaskResult.Failed, 'Invalid version number given');
             return;
@@ -13,12 +13,13 @@ async function run() {
 
         let downloadUrl = downloadLink(versionNumber, os.platform(), os.arch());
 
-        const temp: string = await toolLib.downloadTool(downloadUrl);
-        console.log("Downloaded:" + temp);
-        const terragrunt: string = await toolLib.cacheFile(temp,`terragrunt_${os}_${os.arch()}.exe`,`Terragrunt`, version, os.arch())
-        console.log("Installed: " + terragrunt);
+        const downloaded: string = await toolLib.downloadTool(downloadUrl);
 
-        toolLib.prependPath(terragrunt);
+        const cached: string = await toolLib.cacheFile(downloaded,`terragrunt.exe`,`terragrunt`, versionNumber);
+
+        toolLib.prependPath(cached);
+
+        taskLib.setResult(taskLib.TaskResult.Succeeded, 'Terragrunt has been installed.');
     }
     catch (err) {
         taskLib.setResult(taskLib.TaskResult.Failed, err.message);
