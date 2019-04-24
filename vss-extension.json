@@ -1,8 +1,8 @@
 {
     "manifestVersion": 1,
-    "id": "install-terragrunt",
+    "id": "Terragrunt",
     "publisher": "BigAvocado",
-    "version": "0.0.7",
+    "version": "0.0.12",
     "name": "Install Terragrunt",
     "description": "Installs terragrunt",
     "public": false,
@@ -22,18 +22,18 @@
     },
     "contributions": [
         {
-            "id": "install-terragrunt",
-            "type": "ms.vss-web.hub",
+            "id": "installTerragrunt",
+            "type": "ms.vss-distributed-task.task",
             "targets": [
-                "ms.vss-code-web.code-hub-group"
+                "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "install-terragrunt",
-                "uri": "terragrunt"
+                "name": "installTerragrunt",
+                "uri": "installTerragrunt"
             }
         }
     ],
     "files": [
-        {"path": "terragrunt", "packagePath": "terragrunt"}
+        {"path": "installTerragrunt", "packagePath": "installTerragrunt"}
     ]
 }

@@ -1,6 +1,7 @@
 import taskLib = require('azure-pipelines-task-lib/task');
 import toolLib = require('azure-pipelines-tool-lib/tool');
 import os = require('os');
+import { version } from 'react';
 
 async function run() {
     try {
@@ -10,12 +11,14 @@ async function run() {
             return;
         }
 
-        let downloadUrl = downloadLink(versionNumber, os.platform(), os.arch())
+        let downloadUrl = downloadLink(versionNumber, os.platform(), os.arch());
 
-        const terragrunt: string = await toolLib.downloadTool(downloadUrl);
+        const temp: string = await toolLib.downloadTool(downloadUrl);
+        console.log("Downloaded:" + temp);
+        const terragrunt: string = await toolLib.cacheFile(temp,`terragrunt_${os}_${os.arch()}.exe`,`Terragrunt`, version, os.arch())
+        console.log("Installed: " + terragrunt);
+
         toolLib.prependPath(terragrunt);
-        
-        console.log(terragrunt);
     }
     catch (err) {
         taskLib.setResult(taskLib.TaskResult.Failed, err.message);
@@ -34,7 +37,6 @@ const downloadLink = function(version: string, os: string, arch: string): string
     }
     
     // Add linux and MacOS to this.
-    
     return `https://github.com/gruntwork-io/terragrunt/releases/download/v${version}/terragrunt_${os}_${arch}.exe`;
 }
 
