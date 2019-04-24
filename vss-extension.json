@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "Terragrunt",
     "publisher": "BigAvocado",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "name": "Install Terragrunt",
     "description": "Installs terragrunt",
     "public": false,
@@ -35,5 +35,17 @@
     ],
     "files": [
         {"path": "installTerragrunt", "packagePath": "installTerragrunt"}
-    ]
+    ],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/cdesewell/terragrunt-azure-dev-ops"
+    },
+    "links": {
+        "terragrunt": {
+            "uri": "https://github.com/gruntwork-io/terragrunt"
+        },
+        "bigavocado": {
+            "uri": "https://bigavocado.digital/"
+        }
+    }
 }
