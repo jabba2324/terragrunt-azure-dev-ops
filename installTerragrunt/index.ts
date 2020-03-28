@@ -1,13 +1,13 @@
-import taskLib = require("azure-pipelines-task-lib/task");
-import toolLib = require("azure-pipelines-tool-lib/tool");
-import os = require("os");
+import taskLib = require('azure-pipelines-task-lib/task');
+import toolLib = require('azure-pipelines-tool-lib/tool');
+import os = require('os');
 
-const SUPPORTED_PLATFORMS = ["windows", "linux", "darwin"];
-const SUPPORTED_ARCH = ["386", "adm64"];
+const SUPPORTED_PLATFORMS = ['windows', 'linux', 'darwin'];
+const SUPPORTED_ARCH = ['386', 'adm64'];
 
 async function run() {
   try {
-    const versionNumber = taskLib.getInput("terragruntversion", true);
+    const versionNumber = taskLib.getInput('terragruntversion', true);
     const platform = getPlatform();
     const arch = getArch();
     const downloadUrl = downloadLink(versionNumber, platform, arch);
@@ -23,7 +23,7 @@ async function run() {
 
     taskLib.setResult(
       taskLib.TaskResult.Succeeded,
-      "Terragrunt has been installed."
+      'Terragrunt has been installed.'
     );
   } catch (err) {
     taskLib.setResult(taskLib.TaskResult.Failed, err.message);
@@ -31,8 +31,8 @@ async function run() {
 }
 
 function normalizePlatform(platform: string) {
-  if (platform === "win32") {
-    return "windows";
+  if (platform === 'win32') {
+    return 'windows';
   }
 
   return platform;
@@ -49,12 +49,12 @@ function getPlatform() {
 }
 
 function normalizeArch(arch: string) {
-  if (arch == "x32") {
-    return "386";
+  if (arch == 'x32') {
+    return '386';
   }
 
-  if (arch == "x64") {
-    return "amd64";
+  if (arch == 'x64') {
+    return 'amd64';
   }
 
   return arch;
@@ -71,11 +71,11 @@ function getArch() {
 }
 
 function getExtension(platform: string) {
-  if (platform === "windows") {
-    return ".exe";
+  if (platform === 'windows') {
+    return '.exe';
   }
 
-  return "";
+  return '';
 }
 
 const downloadLink = function(

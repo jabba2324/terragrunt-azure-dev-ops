@@ -1,51 +1,49 @@
 {
-    "manifestVersion": 1,
-    "id": "Terragrunt",
-    "publisher": "BigAvocado",
-    "version": "0.0.3",
-    "name": "Install Terragrunt",
-    "description": "Installs terragrunt",
-    "public": false,
-    "categories": ["Azure Pipelines"],
-    "targets": [
-        {
-            "id": "Microsoft.VisualStudio.Services"
-        }
-    ],
-    "content": {
-        "details": {
-            "path": "README.md"
-        }
-    },
-    "icons": {
-        "default": "images/gruntwork-logo.png"
-    },
-    "contributions": [
-        {
-            "id": "installTerragrunt",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "installTerragrunt",
-                "uri": "installTerragrunt"
-            }
-        }
-    ],
-    "files": [
-        {"path": "installTerragrunt", "packagePath": "installTerragrunt"}
-    ],
-    "repository": {
-        "type": "git",
-        "uri": "https://github.com/cdesewell/terragrunt-azure-dev-ops"
-    },
-    "links": {
-        "terragrunt": {
-            "uri": "https://github.com/gruntwork-io/terragrunt"
-        },
-        "bigavocado": {
-            "uri": "https://bigavocado.digital/"
-        }
+  "manifestVersion": 1,
+  "id": "Terragrunt",
+  "publisher": "BigAvocado",
+  "version": "0.0.3",
+  "name": "Install Terragrunt",
+  "description": "Installs terragrunt",
+  "public": false,
+  "categories": ["Azure Pipelines"],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
     }
+  ],
+  "content": {
+    "details": {
+      "path": "README.md"
+    }
+  },
+  "icons": {
+    "default": "images/gruntwork-logo.png"
+  },
+  "contributions": [
+    {
+      "id": "installTerragrunt",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "installTerragrunt",
+        "uri": "installTerragrunt"
+      }
+    }
+  ],
+  "files": [
+    { "path": "installTerragrunt", "packagePath": "installTerragrunt" }
+  ],
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/cdesewell/terragrunt-azure-dev-ops"
+  },
+  "links": {
+    "terragrunt": {
+      "uri": "https://github.com/gruntwork-io/terragrunt"
+    },
+    "bigavocado": {
+      "uri": "https://bigavocado.digital/"
+    }
+  }
 }
