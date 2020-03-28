@@ -3,7 +3,7 @@ import toolLib = require('azure-pipelines-tool-lib/tool');
 import os = require('os');
 
 const SUPPORTED_PLATFORMS = ['windows', 'linux', 'darwin'];
-const SUPPORTED_ARCH = ['386', 'adm64'];
+const SUPPORTED_ARCH = ['386', 'amd64'];
 
 async function run() {
   try {
@@ -11,19 +11,21 @@ async function run() {
     const platform = getPlatform();
     const arch = getArch();
     const downloadUrl = downloadLink(versionNumber, platform, arch);
-    const downloaded = await toolLib.downloadTool(downloadUrl);
-    const cached = await toolLib.cacheFile(
-      downloaded,
-      `terragrunt.exe`,
-      `terragrunt`,
-      versionNumber
-    );
+    // const downloaded = await toolLib.downloadTool(downloadUrl);
 
-    toolLib.prependPath(cached);
+    console.log({ downloadUrl });
+    // const cached = await toolLib.cacheFile(
+    //   downloaded,
+    //   `terragrunt.exe`,
+    //   `terragrunt`,
+    //   versionNumber
+    // );
+
+    // toolLib.prependPath(cached);
 
     taskLib.setResult(
       taskLib.TaskResult.Succeeded,
-      'Terragrunt has been installed.'
+      `Terragrunt v${versionNumber} has been installed.`
     );
   } catch (err) {
     taskLib.setResult(taskLib.TaskResult.Failed, err.message);
