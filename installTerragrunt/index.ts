@@ -7,29 +7,37 @@ const SUPPORTED_ARCH = ['386', 'amd64'];
 
 async function run() {
   try {
-    const versionNumber = taskLib.getInput('terragruntversion', true);
+    const version = taskLib.getInput('terragruntversion', true);
     const platform = getPlatform();
+    const extension = getExtension(platform);
     const arch = getArch();
-    const downloadUrl = downloadLink(versionNumber, platform, arch);
-    // const downloaded = await toolLib.downloadTool(downloadUrl);
-
-    console.log({ downloadUrl });
-    // const cached = await toolLib.cacheFile(
-    //   downloaded,
-    //   `terragrunt.exe`,
-    //   `terragrunt`,
-    //   versionNumber
-    // );
-
-    // toolLib.prependPath(cached);
-
+    const executable = getExecutableFileName(extension);
+    const downloadUrl = downloadLink({
+      version,
+      platform,
+      arch,
+      extension
+    });
+    const downloaded = await toolLib.downloadTool(downloadUrl);
+    const cached = await toolLib.cacheFile(
+      downloaded,
+      executable,
+      'terragrunt',
+      version
+    );
+    toolLib.prependPath(cached);
     taskLib.setResult(
       taskLib.TaskResult.Succeeded,
-      `Terragrunt v${versionNumber} has been installed.`
+      `Terragrunt v${version} has been installed.`
     );
   } catch (err) {
+    console.log(err.message);
     taskLib.setResult(taskLib.TaskResult.Failed, err.message);
   }
+}
+
+function getExecutableFileName(extension: string) {
+  return `terragrunt${extension}`;
 }
 
 function normalizePlatform(platform: string) {
@@ -44,7 +52,7 @@ function getPlatform() {
   const platform = normalizePlatform(os.platform());
 
   if (!SUPPORTED_PLATFORMS.includes(platform)) {
-    throw new Error(`${platform} is not supported by terragrunt`);
+    throw new Error(`${platform} platform is not supported by terragrunt`);
   }
 
   return platform;
@@ -66,7 +74,7 @@ function getArch() {
   const arch = normalizeArch(os.arch());
 
   if (!SUPPORTED_ARCH.includes(arch)) {
-    throw new Error(`${arch} is not supported by terragrunt`);
+    throw new Error(`${arch} arch is not supported by terragrunt`);
   }
 
   return arch;
@@ -80,12 +88,12 @@ function getExtension(platform: string) {
   return '';
 }
 
-const downloadLink = function(
-  version: string,
-  platform: string,
-  arch: string
-): string {
-  const extension = getExtension(platform);
+const downloadLink = function(args: {
+  version: string;
+  platform: string;
+  arch: string;
+  extension: string;
+}): string {
   return `https://github.com/gruntwork-io/terragrunt/releases/download/v${version}/terragrunt_${platform}_${arch}${extension}`;
 };
 
