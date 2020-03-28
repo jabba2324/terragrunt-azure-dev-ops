@@ -3,11 +3,7 @@ import * as assert from 'assert';
 import * as ttm from 'azure-pipelines-task-lib/mock-test';
 
 describe('Sample task tests', function() {
-  before(function() {});
-
-  after(function() {});
-
-  it('should succeed with simple inputs', function(done: MochaDone) {
+  it('should succeed with simple inputs', function(done) {
     this.timeout(1000);
 
     let tp = path.join(__dirname, 'success.js');
@@ -23,7 +19,7 @@ describe('Sample task tests', function() {
     done();
   });
 
-  it('it should fail if tool returns 1', function(done: MochaDone) {
+  it('it should fail if tool returns 1', function(done) {
     this.timeout(1000);
 
     let tp = path.join(__dirname, 'failure.js');
