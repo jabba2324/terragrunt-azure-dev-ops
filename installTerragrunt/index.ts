@@ -2,23 +2,17 @@ import taskLib = require("azure-pipelines-task-lib/task");
 import toolLib = require("azure-pipelines-tool-lib/tool");
 import os = require("os");
 
+const SUPPORTED_PLATFORMS = ["windows", "linux", "darwin"];
+const SUPPORTED_ARCH = ["386", "adm64"];
+
 async function run() {
   try {
-    const versionNumber: string = taskLib.getInput("terragruntversion", true);
-
-    if (versionNumber == "" || versionNumber == null) {
-      taskLib.setResult(
-        taskLib.TaskResult.Failed,
-        "Invalid version number given"
-      );
-      return;
-    }
-
-    let downloadUrl = downloadLink(versionNumber, os.platform(), os.arch());
-
-    const downloaded: string = await toolLib.downloadTool(downloadUrl);
-
-    const cached: string = await toolLib.cacheFile(
+    const versionNumber = taskLib.getInput("terragruntversion", true);
+    const platform = getPlatform();
+    const arch = getArch();
+    const downloadUrl = downloadLink(versionNumber, platform, arch);
+    const downloaded = await toolLib.downloadTool(downloadUrl);
+    const cached = await toolLib.cacheFile(
       downloaded,
       `terragrunt.exe`,
       `terragrunt`,
@@ -36,23 +30,61 @@ async function run() {
   }
 }
 
+function normalizePlatform(platform: string) {
+  if (platform === "win32") {
+    return "windows";
+  }
+
+  return platform;
+}
+
+function getPlatform() {
+  const platform = normalizePlatform(os.platform());
+
+  if (!SUPPORTED_PLATFORMS.includes(platform)) {
+    throw new Error(`${platform} is not supported by terragrunt`);
+  }
+
+  return platform;
+}
+
+function normalizeArch(arch: string) {
+  if (arch == "x32") {
+    return "386";
+  }
+
+  if (arch == "x64") {
+    return "amd64";
+  }
+
+  return arch;
+}
+
+function getArch() {
+  const arch = normalizeArch(os.arch());
+
+  if (!SUPPORTED_ARCH.includes(arch)) {
+    throw new Error(`${arch} is not supported by terragrunt`);
+  }
+
+  return arch;
+}
+
+function getExtension(platform: string) {
+  if (platform === "windows") {
+    return ".exe";
+  }
+
+  return "";
+}
+
 const downloadLink = function(
   version: string,
-  os: string,
+  platform: string,
   arch: string
 ): string {
-  if (os == "win32") {
-    os = "windows";
-  }
-
-  if (arch == "x32") {
-    arch = "386";
-  } else if (arch == "x64") {
-    arch = "amd64";
-  }
-
-  // Add linux and MacOS to this.
-  return `https://github.com/gruntwork-io/terragrunt/releases/download/v${version}/terragrunt_${os}_${arch}.exe`;
+  const extension = getExtension(platform);
+  return `https://github.com/gruntwork-io/terragrunt/releases/download/v${version}/terragrunt_${platform}_${arch}${extension}`;
 };
 
 run();
