@@ -36,6 +36,7 @@ const downloadLink = function(version: string, os: string, arch: string): string
     } else if (arch == 'x64') {
         arch = 'amd64';
     }
+    
     const extension = os === 'windows' ? '.exe': '';
     
     // Add linux and MacOS to this.
