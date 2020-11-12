@@ -26,9 +26,9 @@
             "name": "terragruntversion",
             "type": "string",
             "label": "Version",
-            "defaultValue": "0.18.4",
+            "defaultValue": "0.25.5",
             "required": true,
-            "helpMarkDown": "Enter the version of terragrunt to install eg 0.18.4"
+            "helpMarkDown": "Enter the version of terragrunt to install eg 0.25.5"
         }
     ],
     "satisfies": ["installTerragrunt"],

@@ -37,8 +37,10 @@ const downloadLink = function(version: string, os: string, arch: string): string
         arch = 'amd64';
     }
     
+    const extension = os === 'windows' ? '.exe': '';
+    
     // Add linux and MacOS to this.
-    return `https://github.com/gruntwork-io/terragrunt/releases/download/v${version}/terragrunt_${os}_${arch}.exe`;
+    return `https://github.com/gruntwork-io/terragrunt/releases/download/v${version}/terragrunt_${os}_${arch}${extension}`;
 }
 
 run();
