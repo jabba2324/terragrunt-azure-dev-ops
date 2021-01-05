@@ -2,7 +2,7 @@
     "id": "c67b072a-0853-4578-95c1-acbc26e8897a",
     "name": "installTerragrunt",
     "friendlyName": "Install Terragrunt",
-    "description": "Installs terragrunt on all platforms",
+    "description": "Installs terragrunt for Windows, Linux, and Mac",
     "helpMarkDown": "https://github.com/gruntwork-io/terragrunt",
     "category": "Tool",
     "author": "Big Avocado",
