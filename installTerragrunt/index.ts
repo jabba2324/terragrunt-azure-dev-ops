@@ -1,6 +1,8 @@
 import taskLib = require('azure-pipelines-task-lib/task');
 import toolLib = require('azure-pipelines-tool-lib/tool');
 import os = require('os');
+import * as fs from 'fs';
+import * as path from 'path';
 
 async function run() {
     try {
@@ -15,9 +17,13 @@ async function run() {
 
         const downloaded: string = await toolLib.downloadTool(downloadUrl);
 
-        const cached: string = await toolLib.cacheFile(downloaded,`terragrunt.exe`,`terragrunt`, versionNumber);
+        const filename =  os.platform() == 'win32' ? 'terragrunt.exe' : 'terragrunt'
+        const cached: string = await toolLib.cacheFile(downloaded, filename, `terragrunt`, versionNumber);
 
         toolLib.prependPath(cached);
+
+        console.log('Elevating terragrunt privileges');
+        fs.chmodSync(path.join(cached, filename), "777");
 
         taskLib.setResult(taskLib.TaskResult.Succeeded, 'Terragrunt has been installed.');
     }

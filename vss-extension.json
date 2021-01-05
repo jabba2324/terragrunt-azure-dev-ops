@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "Terragrunt",
     "publisher": "BigAvocado",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "name": "Install Terragrunt",
     "description": "Installs terragrunt",
     "public": false,

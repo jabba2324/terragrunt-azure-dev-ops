@@ -2,7 +2,7 @@
     "id": "c67b072a-0853-4578-95c1-acbc26e8897a",
     "name": "installTerragrunt",
     "friendlyName": "Install Terragrunt",
-    "description": "Installs terragrunt, currently only for windows",
+    "description": "Installs terragrunt on all platforms",
     "helpMarkDown": "https://github.com/gruntwork-io/terragrunt",
     "category": "Tool",
     "author": "Big Avocado",
@@ -16,7 +16,7 @@
     ],
     "version": {
         "Major": 0,
-        "Minor": 1,
+        "Minor": 2,
         "Patch": 0
     },
     "minimumAgentVersion": "1.95.0",
