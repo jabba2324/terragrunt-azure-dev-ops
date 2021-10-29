@@ -1,6 +1,6 @@
 {
   "name": "install-terragrunt",
-  "version": "0.19.0",
+  "version": "0.28.16",
   "description": "Installs terragrunt",
   "main": "index.js",
   "scripts": {
