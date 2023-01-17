@@ -1,6 +1,6 @@
 node_modules
 .taskkey
-
+agent/
 *.js
 !_*.js
 
