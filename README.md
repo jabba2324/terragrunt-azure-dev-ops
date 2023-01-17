@@ -1,4 +1,4 @@
-# Terragrunt Installer for Azure Dev Ops
+# (DEPRECTED) Terragrunt Installer for Azure Dev Ops
 
 ## What is Terragrunt?
 Terragrunt is a thin wrapper for terraform, you can read more about it [here:](https://github.com/gruntwork-io/terragrunt)
