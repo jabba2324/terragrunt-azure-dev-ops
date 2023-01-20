@@ -1,11 +1,11 @@
 {
     "manifestVersion": 1,
     "id": "Terragrunt",
-    "publisher": "Chris Sewell",
-    "version": "0.0.5",
+    "publisher": "OtaconEngineering",
+    "version": "0.0.6",
     "name": "Install Terragrunt",
     "description": "Installs terragrunt",
-    "public": false,
+    "public": true,
     "categories": ["Azure Pipelines"],
     "targets": [
         {
