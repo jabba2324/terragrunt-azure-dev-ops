@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "Terragrunt",
     "publisher": "OtaconEngineering",
-    "version": "0.0.6",
+    "version": "0.0.9",
     "name": "Install Terragrunt",
     "description": "Installs terragrunt",
     "public": true,
@@ -22,19 +22,18 @@
     },
     "contributions": [
         {
-            "id": "installTerragrunt",
+            "id": "Install Terragrunt",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "installTerragrunt",
-                "uri": "installTerragrunt"
+                "name": "installTerragrunt"
             }
         }
     ],
     "files": [
-        {"path": "installTerragrunt", "packagePath": "installTerragrunt"}
+        {"path": "installTerragrunt"}
     ],
     "repository": {
         "type": "git",
