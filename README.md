@@ -20,3 +20,4 @@ mocha tests/_suite.js
 ## Troubleshooting
 
 This task was created by following [this](https://learn.microsoft.com/en-us/visualstudio/extensibility/starting-to-develop-visual-studio-extensions?view=vs-2022) article, if your having trouble getting started try following the setup steps before posting an issue.
+
